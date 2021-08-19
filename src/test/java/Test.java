@@ -1,5 +1,6 @@
 import monster.helloworld.file_name.FileName;
 import monster.helloworld.mac_who_is.OuiFileDao;
+import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -28,6 +29,50 @@ public class Test {
 
     }
 
+
+    @org.junit.jupiter.api.Test
+    public void test24() {
+        System.out.println("A：" + "A".matches("[^A-F]"));
+        System.out.println("B：" + "B".matches("[^A-F]"));
+        System.out.println("C：" + "C".matches("[^A-F]"));
+        System.out.println("D：" + "D".matches("[^A-F]"));
+        System.out.println("E：" + "E".matches("[^A-F]"));
+        System.out.println("F：" + "F".matches("[^A-F]"));
+        System.out.println("G：" + "G".matches("[^A-F]"));
+        System.out.println("AB：" + "H".matches("[^A-F]"));
+        System.out.println("AW：" + "AW".matches("[^A-F]"));
+        System.out.println("AW：" + "AW".matches("[\\s\\S]*[^A-F0-9\\-: ,][\\s\\S]*"));
+        System.out.println("GA：" + "GA".matches("[\\s\\S]*[^A-F0-9\\-: ,][\\s\\S]*"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void test23() {
+        String s = StringEscapeUtils.escapeHtml4("a`1234567890-=~!@#$%^&*()_+[]{};':\"\\|,./<>?\b\f\n\r\t\0 " + "qwertyuiopasdfghjklzxcvbnm");
+        s = s.toUpperCase();
+        System.out.println(s);
+        System.out.println(s.matches("[^A-F0-9\\-: ,]"));
+        s = s.replaceAll("[^A-F0-9\\-: ,]", "");
+        System.out.println(s.matches("[^A-F0-9\\-: ,]"));
+        System.out.println(s);
+
+
+    }
+
+    @org.junit.jupiter.api.Test
+    public void test22() {
+//        File file = new File("./resources/oui/oui.txt");
+//        System.out.println(file.getPath());
+//        System.out.println(file.getPath().replaceAll("[\\\\]", "/"));
+////        System.out.println(File.separator);
+//        System.out.println(file.exists());
+
+
+        File ouiFile = new OuiFileDao().getOuiFile();
+        System.out.println(ouiFile.getPath());
+        System.out.println(ouiFile.exists());
+
+    }
+
     @org.junit.jupiter.api.Test
     public void test21() throws IOException, InterruptedException {
 //        File file = new File("./resources/oui/index.md");
@@ -47,7 +92,6 @@ public class Test {
 //        System.out.println(now);
 
 //        1629295412451
-
 
 
 //        new OuiFileDao().downLoadFromUrl();

@@ -10,30 +10,45 @@ import java.time.format.DateTimeFormatter;
 
 public class OuiFileDao {
 
+    // private String sourceUrl = "http://standards-oui.ieee.org/oui/oui.txt";
+    public String sourceUrl = "http://10.10.10.20/oui.txt";
+    public String fileName = "oui.txt";
+    // public String savePath = "./web_resources/oui/"; // 用相对路径会出错
+    // public String savePath = "~/web_resources/oui/";
+    public String savePath = "D:\\#Coding\\GitHub_Repository\\x_tools_and_toys\\web_resources\\oui\\";
+    // private final long OUI_TTL = 1000 * 3600 * 24 * 7; // 7天
+    private final long OUI_TTL = 1000 * 3600; // 1小时
+    // public static final long OUI_TTL = 1000 * 10; // 10秒
 
 
-    private String sourceUrl = "http://helloworld.monster/check_the_health_status_of_hard_disk/index.md";
-    private String fileName = "index.md";
-    //    private String sourceUrl = "http://standards-oui.ieee.org/oui/oui.txt";
-    //    private String fileName = "oui.txt";
+//    public RandomAccessFile getRandomAccessFile() {
+//        RandomAccessFile randomAccessFile = null;
+//        try {
+//            randomAccessFile = new RandomAccessFile(this.savePath + this.fileName, "r");
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return randomAccessFile;
+//    }
 
-    private String savePath = "./resources/oui/";
-    //    private final long OUI_TTL = 1000 * 3600 * 24 * 7;
-    private final long OUI_TTL = 1000 * 10;
+    public String getLastModifiedTime() {
 
+        File ouiFile = new OuiFileDao().getOuiFile();
 
-    public OuiFileDao() {
+        if (!ouiFile.exists()) {
+            // 文件不存在
+            return "资料库为空（执行查询将自动更新资料库）。";
+
+        } else {
+            Instant lastModifiedInstant = Instant.ofEpochMilli(ouiFile.lastModified());
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH:mm:ss");
+            ZoneId zone = ZoneId.systemDefault();
+            String lastModifiedStr = dateTimeFormatter.format(LocalDateTime.ofInstant(lastModifiedInstant, zone));
+            // System.out.println(lastModifiedStr);
+            return lastModifiedStr;
+        }
     }
 
-    public OuiFileDao(String sourceUrl, String savePath, String fileName) {
-        this.sourceUrl = sourceUrl;
-        this.savePath = savePath;
-        this.fileName = fileName;
-    }
-
-    // 获取 oui 文件对象    http://standards-oui.ieee.org/oui/oui.txt
-    //      自动更新
-    //      返回该文件对象
     public File getOuiFile() {
 
         // 判断本地文件的是否存在
@@ -44,18 +59,18 @@ public class OuiFileDao {
         File file = new File(saveDir + File.separator + this.fileName);
         if (!file.exists()) {
             // 文件不存在，直接执行下载
-            this.downLoadFromUrl();
+            downLoadFromUrl();
 
         } else {
             // 文件存在，判断本地文件的最后修改时间（大于 7 天，则更新，更新时执行备份）
             long lastUpdateTime = file.lastModified();
-            System.out.println(lastUpdateTime);
+            // System.out.println(lastUpdateTime);
 
             LocalDateTime nowLDT = LocalDateTime.now();
             ZoneId zone = ZoneId.systemDefault();
             Instant nowLdtInstant = nowLDT.atZone(zone).toInstant();
             long now = nowLdtInstant.toEpochMilli();
-            System.out.println(now);
+            // System.out.println(now);
 
             if ((now - lastUpdateTime) >= OUI_TTL) {
                 // 执行备份
@@ -64,7 +79,7 @@ public class OuiFileDao {
                 Instant lastModInstant = Instant.ofEpochMilli(file.lastModified());
                 DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("_yyyyMMdd_HHmmss");
                 String suffix = dateTimeFormatter.format(LocalDateTime.ofInstant(lastModInstant, zone));
-                System.out.println(suffix);
+                // System.out.println(suffix);
 
                 File backupFile = new File(saveDir + File.separator + this.fileName + suffix);
                 if (backupFile.exists()) {  //  确保新的文件名不存在
@@ -75,18 +90,15 @@ public class OuiFileDao {
                     }
                 }
                 if (file.renameTo(backupFile)) {
-                    System.out.println("文件已备份");
+                    System.out.println("文件备份完成");
                 } else {
                     System.out.println("文件备份失败，跳过备份步骤");
                 }
-
-                // 执行更新
+                // 执行下载更新
                 this.downLoadFromUrl();
             }
-        }
 
-        file=null;
-        file = new File(saveDir + File.separator + this.fileName);
+        }
 
         return file;
     }
@@ -119,6 +131,7 @@ public class OuiFileDao {
                 saveDir.mkdir();
             }
             File file = new File(saveDir + File.separator + this.fileName);
+            // System.out.println(file.getPath());
             fileOutputStream = new FileOutputStream(file);
 
             fileOutputStream.write(getData);
@@ -133,9 +146,6 @@ public class OuiFileDao {
                 e.printStackTrace();
             }
         }
-
-        // System.out.println("info:" + url + " download success");
-
     }
 
     /**

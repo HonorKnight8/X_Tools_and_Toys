@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="tools_and_toys" />
+        <module name="x_tools_and_toys" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />

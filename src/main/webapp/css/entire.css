@@ -114,25 +114,25 @@ div {
 
 /* 分割线样式开始 */
 
-/*hr.style9 {*/
-/*    overflow: visible;*/
-/*    !* For IE *!*/
-/*    padding: 0;*/
-/*    border: none;*/
-/*    border-top: medium double #333;*/
-/*    color: #333;*/
-/*    text-align: center;*/
-/*}*/
+hr.style9 {
+    overflow: visible;
+    /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
 
-/*hr.style9:after {*/
-/*    content: "§";*/
-/*    display: inline-block;*/
-/*    position: relative;*/
-/*    top: -0.7em;*/
-/*    font-size: 1.5em;*/
-/*    padding: 0 0.25em;*/
-/*    background: white;*/
-/*}*/
+hr.style9:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
 
 /* 分割线样式结束 */
 

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>文件名转小写、下划线</title>
+    <title>文件名转小写、下划线——X_Monster</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/entire.css">
@@ -37,7 +37,7 @@
     <!-- 页面主体 -->
     <div id="main">
 
-        <!-- login_DIV -->
+        <!-- file_name -->
         <div id="file_name">
             <!-- 这行是显示服务器返回的提示信息 -->
             <span id="returnMsg"></span>
@@ -60,27 +60,25 @@
 
                 </ul>
             </fieldset>
-            <span id="returnFileName"></span><br/><br/>
-            <%-- 可能加个分割线 --%>
-            <a href="/permission_required_for_running_mapreduce_on-windows/" style="background-color: #292a2d"> 关于本工具的说明（源代码） </a>
+            <span id="returnFileName"></span><br/>
+            <hr class="style9">
+            <a href="/description_about_file_name_convert_tool/" style="background-color: #292a2d"> 关于本工具的说明（源代码） </a><br/>
+            <a href="https://github.com/HonorKnight8/X_Tools_and_Toys" style="background-color: #292a2d"> 本工具源码 </a>
         </div>
 
     </div>
 
 </div>
 
-
 </body>
 
 <script>
-    // 登录方法
+
     function submit() {
         $("#returnFileName").css("color", "red").html("");
         $("#returnMsg").css("color", "red").html("");
 
-
         let filename = $("#filename").val();
-        // console.log("userName：" + userName);
 
         $.ajax({
             url: "/tools_and_toys/file_name",
@@ -95,7 +93,6 @@
                 console.log("服务器返回：" + data);
 
                 if (data.flag) {
-                    // 登录成功，跳转到主页
                     $("#returnFileName").css("color", "royalblue").html(data.returnFileName);
                 } else {
                     $("#returnMsg").css("color", "red").html(data.returnMsg);
@@ -105,7 +102,6 @@
                 console.log("执行失败");
             },
         })
-
     }
 </script>
 
