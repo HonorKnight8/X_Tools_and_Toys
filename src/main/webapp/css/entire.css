@@ -1,0 +1,158 @@
+div {
+    /* 所有DIV样式 */
+    margin: 0px auto;
+    padding: 5px;
+}
+
+#topbar {
+    /* 页面顶栏样式 */
+    background-color: #292a2d;
+    border: 5px outset royalblue;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    font-size: 2em;
+    font-weight: 555;
+    text-align: center;
+    padding: 15px;
+}
+
+#main {
+    text-align: center
+}
+
+#div_rMsg {
+    text-align: left
+}
+
+/*#system {*/
+/*    width: 800px;*/
+/*}*/
+
+/* 表格样式开始 */
+
+/*table.tableC1 {*/
+/*    text-align: left;*/
+/*    font-size: 1.5em;*/
+/*    border-collapse: collapse;*/
+/*}*/
+
+/*table.tableC1 th {*/
+/*    color: rgba(0, 0, 0, 0.5);*/
+/*    padding: 8px;*/
+/*    border: 1px solid rgba(120, 120, 120, 0.5);*/
+/*    background-color: rgb(195, 193, 209);*/
+/*}*/
+
+/*table.tableC1 td {*/
+/*    padding: 8px;*/
+/*    border: 1px solid rgba(120, 120, 120, 0.5);*/
+/*}*/
+
+/*table.tableC1 tr:nth-child(odd) {*/
+/*    !* 奇数行背景色 *!*/
+/*    background: #dedede;*/
+/*}*/
+
+/*table.tableC1 tr:nth-child(even) {*/
+/*    !* 偶数行背景色 *!*/
+/*    background: rgb(192, 248, 250);*/
+/*}*/
+
+/* 表格样式结束 */
+
+#file_name {
+    text-align: left;
+    width: 600px;
+}
+
+#returnFileName {
+    font-size: 1.8em;
+    font-weight: 555;
+}
+
+
+
+/* 输入框和提交按钮样式开始 */
+
+/*#file_name .input,*/
+/*#add .input {*/
+/*    outline-style: none;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 3px;*/
+/*    padding: 5px 5px;*/
+/*    width: 200px;*/
+/*    !* height: 50px; *!*/
+/*    font-size: 14px;*/
+/*    !* font-weight: 700; *!*/
+/*    !* font-family: "Microsoft soft"; *!*/
+/*}*/
+
+/*#file_name .submit,*/
+/*#add .submit {*/
+/*    outline-style: none;*/
+/*    border: 1px solid #ccc;*/
+/*    border-radius: 3px;*/
+/*    padding: 5px 5px;*/
+/*    width: 100px;*/
+/*    font-size: 1em;*/
+/*    text-align: center;*/
+/*    !* font-weight: 700; *!*/
+/*    !* font-family: "Microsoft soft"; *!*/
+/*}*/
+
+/*.input:focus,*/
+/*.submit:focus {*/
+/*    border-color: #66afe9;*/
+/*    outline: 0;*/
+/*    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);*/
+/*    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)*/
+/*}*/
+
+/* 输入框和提交按钮样式结束 */
+
+
+/* 分割线样式开始 */
+
+/*hr.style9 {*/
+/*    overflow: visible;*/
+/*    !* For IE *!*/
+/*    padding: 0;*/
+/*    border: none;*/
+/*    border-top: medium double #333;*/
+/*    color: #333;*/
+/*    text-align: center;*/
+/*}*/
+
+/*hr.style9:after {*/
+/*    content: "§";*/
+/*    display: inline-block;*/
+/*    position: relative;*/
+/*    top: -0.7em;*/
+/*    font-size: 1.5em;*/
+/*    padding: 0 0.25em;*/
+/*    background: white;*/
+/*}*/
+
+/* 分割线样式结束 */
+
+
+/* 超链样式开始 */
+
+a {
+    padding: 3px 5px 5px 5px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 777;
+    color: #818181;
+    /*background: #111;*/
+    transition: 0.3s;
+    /*标签延迟0.3s显示*/
+}
+
+a:hover {
+    color: #f1f1f1;
+    text-decoration: underline;
+}
+
+/* 超链样式结束 */
