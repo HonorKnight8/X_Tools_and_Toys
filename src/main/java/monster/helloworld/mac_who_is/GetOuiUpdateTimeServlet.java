@@ -10,6 +10,9 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
+/**
+ * 用于前台页面加载时查询 oui 文件的更新时间
+ */
 public class GetOuiUpdateTimeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp){

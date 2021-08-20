@@ -66,11 +66,22 @@ div {
     width: 600px;
 }
 
+#mac_who_is {
+    text-align: left;
+    width: 800px;
+}
+
 #returnFileName {
     font-size: 1.8em;
     font-weight: 555;
 }
 
+
+#returnResults {
+    /*color: royalblue;*/
+    font-size: 1em;
+    /*font-weight: 555;*/
+}
 
 
 /* 输入框和提交按钮样式开始 */

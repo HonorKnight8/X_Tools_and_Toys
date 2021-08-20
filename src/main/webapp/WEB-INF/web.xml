@@ -7,7 +7,7 @@
     <!-- file_name -->
     <servlet>
         <servlet-name>file_name</servlet-name>
-        <servlet-class>monster.helloworld.file_name.FileName</servlet-class>
+        <servlet-class>monster.helloworld.file_name.FileNameServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>file_name</servlet-name>

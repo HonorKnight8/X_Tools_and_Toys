@@ -10,28 +10,49 @@ import java.time.format.DateTimeFormatter;
 
 public class OuiFileDao {
 
-    // private String sourceUrl = "http://standards-oui.ieee.org/oui/oui.txt";
-    public String sourceUrl = "http://10.10.10.20/oui.txt";
+
+    public static final String ACTIONPATH = "WEB-INF/oui/oui.txt";
+
     public String fileName = "oui.txt";
-    // public String savePath = "./web_resources/oui/"; // 用相对路径会出错
-    // public String savePath = "~/web_resources/oui/";
-    public String savePath = "D:\\#Coding\\GitHub_Repository\\x_tools_and_toys\\web_resources\\oui\\";
-    // private final long OUI_TTL = 1000 * 3600 * 24 * 7; // 7天
-    private final long OUI_TTL = 1000 * 3600; // 1小时
+    public String savePath = "./resources/oui/";
+//    src/main/resources/oui/oui.txt
+//    src/main/resources/oui/oui.txt
+    // 正式环境
+    private String sourceUrl = "http://standards-oui.ieee.org/oui/oui.txt";
+    private final long OUI_TTL = 1000 * 3600 * 24 * 7; // 7天
+
+    // 测试环境
+    // public String sourceUrl = "http://10.10.10.20/oui.txt";
+    // private final long OUI_TTL = 1000 * 3600; // 1小时
     // public static final long OUI_TTL = 1000 * 10; // 10秒
+    // public String savePath = "./web_resources/oui/"; // 用相对路径会出错
+    // public String savePath = "D:\\#Coding\\GitHub_Repository\\x_tools_and_toys\\web_resources\\oui\\";
 
 
-//    public RandomAccessFile getRandomAccessFile() {
-//        RandomAccessFile randomAccessFile = null;
-//        try {
-//            randomAccessFile = new RandomAccessFile(this.savePath + this.fileName, "r");
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        return randomAccessFile;
-//    }
+    public File justGetOuiFile(){
+        // 获取当前类加载的根目录
+        File classLoadRoot = new File(this.getClass().getResource("/").getPath());
+        // System.out.println(classLoadRoot);
+        // \ 转 /
+        String ouiPath = classLoadRoot.toString().replaceAll("\\\\","/") + "/oui/oui.txt";
 
+        File ouiFile = new File(ouiPath);
+//        System.out.println(ouiFile);
+//        System.out.println(ouiFile.lastModified());
+//        System.out.println(ouiFile.getPath());
+
+        return ouiFile;
+    }
+
+
+    /**
+     * 获取 oui 文件最后修改时间的方法
+     *
+     * @return String
+     */
     public String getLastModifiedTime() {
+
+
 
         File ouiFile = new OuiFileDao().getOuiFile();
 
@@ -49,12 +70,19 @@ public class OuiFileDao {
         }
     }
 
+    /**
+     * 获取 oui 文件对象的方法。
+     * 若文件不存在，或过期，调用下载方法进行下载，
+     * 下载之前备份旧文件。
+     *
+     * @return File
+     */
     public File getOuiFile() {
 
         // 判断本地文件的是否存在
         File saveDir = new File(this.savePath);
         if (!saveDir.exists()) {
-            saveDir.mkdir();
+            saveDir.mkdirs();
         }
         File file = new File(saveDir + File.separator + this.fileName);
         if (!file.exists()) {
@@ -89,7 +117,7 @@ public class OuiFileDao {
                         e.printStackTrace();
                     }
                 }
-                if (file.renameTo(backupFile)) {
+                if (file.renameTo(backupFile)) { // 执行备份文件
                     System.out.println("文件备份完成");
                 } else {
                     System.out.println("文件备份失败，跳过备份步骤");
@@ -105,7 +133,8 @@ public class OuiFileDao {
 
 
     /**
-     * 从网络 Url 中下载文件
+     * 从网络 Url 中下载文件。
+     * 本方法参考：https://blog.csdn.net/w410589502/article/details/53818137。
      */
     public void downLoadFromUrl() {
         URL url = null;
@@ -128,7 +157,7 @@ public class OuiFileDao {
             //文件保存位置
             File saveDir = new File(this.savePath);
             if (!saveDir.exists()) {
-                saveDir.mkdir();
+                saveDir.mkdirs();
             }
             File file = new File(saveDir + File.separator + this.fileName);
             // System.out.println(file.getPath());
@@ -140,8 +169,13 @@ public class OuiFileDao {
             e.printStackTrace();
         } finally {
             try {
-                fileOutputStream.close();
-                inputStream.close();
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -149,8 +183,8 @@ public class OuiFileDao {
     }
 
     /**
-     * 从输入流中获取字节数组  （ inputSteam >> 字节数组 >> fileOutPutSteam ）
-     * 本方法参考：https://blog.csdn.net/w410589502/article/details/53818137
+     * 从输入流中获取字节数组  （ inputSteam >> 字节数组 >> fileOutPutSteam ）。
+     * 本方法参考：https://blog.csdn.net/w410589502/article/details/53818137。
      *
      * @param inputStream 传入一个输入流
      * @return byte[] 返回字节数组
@@ -170,15 +204,4 @@ public class OuiFileDao {
         return bos.toByteArray();
     }
 
-
-//    public String getSuffix() {
-//        LocalDateTime nowLDT = LocalDateTime.now();
-//        ZoneId zone = ZoneId.systemDefault();
-//        Instant nowLdtInstant = nowLDT.atZone(zone).toInstant();
-//        //long now = nowLdtInstant.toEpochMilli();
-//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("_yyyyMMdd_HHmmss");
-//        String suffix = dateTimeFormatter.format(LocalDateTime.ofInstant(nowLdtInstant, zone));
-//        System.out.println(suffix);
-//        return suffix;
-//    }
 }
