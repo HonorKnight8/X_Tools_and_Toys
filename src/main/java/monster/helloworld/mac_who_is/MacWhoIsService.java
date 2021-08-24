@@ -1,7 +1,5 @@
 package monster.helloworld.mac_who_is;
 
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 

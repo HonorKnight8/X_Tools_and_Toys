@@ -1,21 +1,64 @@
-import monster.helloworld.file_name.FileNameServlet;
-import monster.helloworld.mac_who_is.MacWhoIsDao;
+import monster.helloworld.mac_who_is.Constant;
+import monster.helloworld.mac_who_is.OuiFileBean;
 import monster.helloworld.mac_who_is.OuiFileDao;
-import org.apache.commons.text.StringEscapeUtils;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.SimpleDateFormat;
 
 
 public class Test {
 
-    @org.junit.jupiter.api.Test
-    public void test30(){
-        System.out.println(new OuiFileDao().justGetOuiFile());
-        System.out.println(System.getProperty("user.dir"));
-    }
+//    @org.junit.jupiter.api.Test
+//    public void test32(){
+//        System.out.println(Constant.test);
+//
+//        System.out.println(new OuiFileDao().getLastModifiedTime());
+//        File ouiFile = OuiFileBean.getOuiFile(new File(this.getClass().getResource("/").getPath()));
+//        System.out.println(ouiFile.getParentFile());
+//    }
+
+
+//    @org.junit.jupiter.api.Test
+//    public void test31(){
+//        System.out.println("1 " + System.getProperty("file.separator"));
+//        System.out.println("2 " + System.getProperty("java.class.path"));
+//        System.out.println("3 " + System.getProperty("java.home"));
+//        System.out.println("4 " + System.getProperty("java.vendor"));
+//        System.out.println("5 " + System.getProperty("java.vendor.url"));
+//        System.out.println("6 " + System.getProperty("java.version"));
+//        System.out.println("7 " + System.getProperty("line.separator"));
+//        System.out.println("8 " + System.getProperty("os.arch"));
+//        System.out.println("9 " + System.getProperty("os.name"));
+//        System.out.println("10 " + System.getProperty("os.version"));
+//        System.out.println("11 " + System.getProperty("path.separator"));
+//        System.out.println("12 " + System.getProperty("user.dir"));
+//        System.out.println("13 " + System.getProperty("user.home"));
+//        System.out.println("14 " + System.getProperty("user.name"));
+//
+//        //"file.separator"    Character that separates components of a file path. This is "/" on UNIX and "\" on Windows.
+//        //"java.class.path"	Path used to find directories and JAR archives containing class files. Elements of the class path are separated by a platform-specific character specified in the path.separator property.
+//        //"java.home"	Installation directory for Java Runtime Environment (JRE)
+//        //"java.vendor"	JRE vendor name
+//        //"java.vendor.url"	JRE vendor URL
+//        //"java.version"	JRE version number
+//        //"line.separator"	Sequence used by operating system to separate lines in text files
+//        //"os.arch"	Operating system architecture
+//        //"os.name"	Operating system name
+//        //"os.version"	Operating system version
+//        //"path.separator"	Path separator character used in java.class.path
+//        //"user.dir"	User working directory
+//        //"user.home"	User home directory
+//        //"user.name"
+//    }
+
+
+//    @org.junit.jupiter.api.Test
+//    public void test30(){
+//        System.out.println(new File(this.getClass().getResource("/").getPath()));
+//        File file = OuiFileBean.getOuiFile(new File(this.getClass().getResource("/").getPath()));
+//        System.out.println(file);
+//        System.out.println(file.lastModified());
+//        System.out.println(file.exists());
+//    }
 
 //    @org.junit.jupiter.api.Test
 //    public void test1() {
@@ -86,27 +129,27 @@ public class Test {
 //
 //    @org.junit.jupiter.api.Test
 //    public void test21() throws IOException, InterruptedException {
-////        File file = new File("./resources/oui/index.md");
-////
-////        System.out.println(file.lastModified());
-////
-////        Instant lastModInstant = Instant.ofEpochMilli(file.lastModified());
-////        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("_yyyyMMdd_HHmmss");
+//        File file = new File("./resources/oui/index.md");
+//
+//        System.out.println(file.lastModified());
+//
+//        Instant lastModInstant = Instant.ofEpochMilli(file.lastModified());
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("_yyyyMMdd_HHmmss");
+//        ZoneId zone = ZoneId.systemDefault();
+//        String suffix = dateTimeFormatter.format(LocalDateTime.ofInstant(lastModInstant, zone));
+//        System.out.println(suffix);
+//
+//        LocalDateTime nowLDT = LocalDateTime.now();
 ////        ZoneId zone = ZoneId.systemDefault();
-////        String suffix = dateTimeFormatter.format(LocalDateTime.ofInstant(lastModInstant, zone));
-////        System.out.println(suffix);
-////
-////        LocalDateTime nowLDT = LocalDateTime.now();
-//////        ZoneId zone = ZoneId.systemDefault();
-////        Instant nowLdtInstant = nowLDT.atZone(zone).toInstant();
-////        long now = nowLdtInstant.toEpochMilli();
-////        System.out.println(now);
-//
-////        1629295412451
-//
-//
-////        new OuiFileDao().downLoadFromUrl();
-//
+//        Instant nowLdtInstant = nowLDT.atZone(zone).toInstant();
+//        long now = nowLdtInstant.toEpochMilli();
+//        System.out.println(now);
+
+//        1629295412451
+
+
+//        new OuiFileDao().downLoadFromUrl();
+
 //        for (int i = 0; i < 5; i++) {
 //            Thread.sleep(1000 * 6);
 //            System.out.println(i);
@@ -115,9 +158,9 @@ public class Test {
 //
 //        Thread.sleep(1000 * 11);
 //        new OuiFileDao().getOuiFile();
-//
-////       new OuiFileDao("http://standards-oui.ieee.org/oui/oui.txt","./resources/","oui5.txt").getOui();
-//
+
+//       new OuiFileDao("http://standards-oui.ieee.org/oui/oui.txt","./resources/","oui5.txt").getOui();
+
 //    }
 //
 //    @org.junit.jupiter.api.Test

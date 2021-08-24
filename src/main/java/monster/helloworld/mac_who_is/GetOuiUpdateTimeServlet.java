@@ -11,7 +11,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
 /**
- * 用于前台页面加载时查询 oui 文件的更新时间
+ * 用于前台查询 oui 文件的更新时间
+ * 两处使用：页面加载时，执行完 MAC 查询后
  */
 public class GetOuiUpdateTimeServlet extends HttpServlet {
     @Override
@@ -29,11 +30,9 @@ public class GetOuiUpdateTimeServlet extends HttpServlet {
         }
         resp.setContentType("text/html;charset=utf-8");
 
-        // 接收前端提交上来的文件名
-
         HashMap<String,Object> map = new HashMap<>(); // 用于存放返回信息
 
-        // 获取 oui 文件的 lastmodifiedtime
+        // 获取 oui 文件的 LastModifiedTime
         String lastModifiedTime = new OuiFileDao().getLastModifiedTime();
         System.out.println(lastModifiedTime);
 

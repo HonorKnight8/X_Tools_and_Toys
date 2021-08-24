@@ -8,17 +8,17 @@
     <script src="js/jquery-3.6.0.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<%--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>--%>
+<%--    <script>--%>
+<%--        window.dataLayer = window.dataLayer || [];--%>
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+<%--        function gtag() {--%>
+<%--            dataLayer.push(arguments);--%>
+<%--        }--%>
 
-        gtag('js', new Date());
-        gtag('config', 'G-W7NHWX0HRN');
-    </script>
+<%--        gtag('js', new Date());--%>
+<%--        gtag('config', 'G-W7NHWX0HRN');--%>
+<%--    </script>--%>
 </head>
 <body style="margin: 0px; padding: 0px;">
 <!-- 去除页面与浏览器边框之间的空白 -->

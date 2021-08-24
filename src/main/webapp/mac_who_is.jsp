@@ -10,17 +10,17 @@
     <script src="js/jquery-3.6.0.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+<%--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>--%>
+<%--    <script>--%>
+<%--        window.dataLayer = window.dataLayer || [];--%>
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+<%--        function gtag() {--%>
+<%--            dataLayer.push(arguments);--%>
+<%--        }--%>
 
-        gtag('js', new Date());
-        gtag('config', 'G-W7NHWX0HRN');
-    </script>
+<%--        gtag('js', new Date());--%>
+<%--        gtag('config', 'G-W7NHWX0HRN');--%>
+<%--    </script>--%>
 </head>
 <body style="margin: 0px; padding: 0px;">
 <!-- 去除页面与浏览器边框之间的空白 -->
@@ -94,7 +94,13 @@
      * 页面加载时，获取资料库更新时间
      */
     $(document).ready(function () {
-        //console.log("页面加载");
+        updateTime();
+    });
+    // window.onload = function (){
+    //     updateTime();
+    // };
+
+    function updateTime(){
         $.ajax({
             url: "/tools_and_toys/get_oui_update_time",
             async: true,
@@ -111,12 +117,13 @@
                 console.log("执行失败");
             },
         })
-    });
+    }
 
     /**
      * 进行 MAC 地址查询
      */
     function submit() {
+
         $("#returnResults").css("color", "red").html("");
         $("#returnMsg").css("color", "red").html("");
 
@@ -148,6 +155,7 @@
                 } else {
                     $("#returnMsg").css("color", "red").html(data.returnMsg);
                 }
+                updateTime();
             },
             error: function () {
                 console.log("执行失败");
