@@ -10,17 +10,17 @@
     <script src="js/jquery-3.6.0.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<%--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>--%>
-<%--    <script>--%>
-<%--        window.dataLayer = window.dataLayer || [];--%>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<%--        function gtag() {--%>
-<%--            dataLayer.push(arguments);--%>
-<%--        }--%>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-<%--        gtag('js', new Date());--%>
-<%--        gtag('config', 'G-W7NHWX0HRN');--%>
-<%--    </script>--%>
+        gtag('js', new Date());
+        gtag('config', 'G-W7NHWX0HRN');
+    </script>
 </head>
 <body style="margin: 0px; padding: 0px;">
 <!-- 去除页面与浏览器边框之间的空白 -->
@@ -80,6 +80,20 @@
             <span id="returnResults"></span><br/>
             <hr class="style9">
             <a href="https://github.com/HonorKnight8/X_Tools_and_Toys" style="background-color: #292a2d"> 本工具源码 </a>
+            <br/><br/>
+            <hr class="style9">
+            演示数据：(复制上去试试)
+            <ul style="list-style-type: decimal">
+                <li>08:00：20：0A：8C：6D,
+                    00-16-EA-AE-3C-40,
+                    00 0A 02 0B 03 0C,
+                    2135-6D1F-839E,
+                    00105CAD72E3,
+                    00:1B:44:11:3A:B7，
+                    9c.35.5B.5F.4C.D7,
+                    00:10,
+                    00105CAD72E3A</li>
+            </ul>
         </div>
 
     </div>

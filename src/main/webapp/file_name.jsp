@@ -8,17 +8,17 @@
     <script src="js/jquery-3.6.0.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-<%--    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>--%>
-<%--    <script>--%>
-<%--        window.dataLayer = window.dataLayer || [];--%>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-<%--        function gtag() {--%>
-<%--            dataLayer.push(arguments);--%>
-<%--        }--%>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-<%--        gtag('js', new Date());--%>
-<%--        gtag('config', 'G-W7NHWX0HRN');--%>
-<%--    </script>--%>
+        gtag('js', new Date());
+        gtag('config', 'G-W7NHWX0HRN');
+    </script>
 </head>
 <body style="margin: 0px; padding: 0px;">
 <!-- 去除页面与浏览器边框之间的空白 -->
@@ -62,8 +62,24 @@
             </fieldset>
             <span id="returnFileName"></span><br/>
             <hr class="style9">
-            <a href="/description_about_file_name_convert_tool/" style="background-color: #292a2d"> 关于本工具的说明（源代码） </a><br/>
+
             <a href="https://github.com/HonorKnight8/X_Tools_and_Toys" style="background-color: #292a2d"> 本工具源码 </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/description_about_file_name_convert_tool/" style="background-color: #292a2d"> 关于本工具的说明（源代码） </a>
+            <br/><br/>
+            <hr class="style9">
+            演示数据：(复制上去试试)
+            <ul style="list-style-type: decimal">
+                <li>This is a nice File Name</li>
+                <li>THIS&nbsp;&nbsp;is---a____nIce- _File Name . htmL</li>
+                <li>This&nbsp;&nbsp;&nbsp;is--a__nice File- _ -Name....html- . _ - bak</li>
+            </ul>
+
+
+
+
+
+
         </div>
 
     </div>

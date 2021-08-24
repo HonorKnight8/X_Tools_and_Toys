@@ -1,6 +1,7 @@
 package monster.helloworld.file_name;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.text.StringEscapeUtils;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +29,7 @@ public class FileNameServlet extends HttpServlet {
 
         // 接收前端提交上来的文件名
         System.out.println("___接收到客户端发送过来的信息：" + req.getParameter("filename"));
-        String filename = req.getParameter("filename");
+        String filename = StringEscapeUtils.escapeHtml4(req.getParameter("filename")); // 将特殊字符转换为 HTML 实体
         filename = filename.trim();
 
         HashMap<String,Object> map = new HashMap<>(); // 用于存放返回信息
