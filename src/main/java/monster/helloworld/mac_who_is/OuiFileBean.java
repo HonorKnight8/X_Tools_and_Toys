@@ -13,7 +13,11 @@ public class OuiFileBean {
         if (ouiFile == null) {
             if (!Constant.IS_LOCAL_TEST_ENV) {
                 // war 部署至 Linux 环境
-                String ouiPath = classLoadRoot + System.getProperty("file.separator") + Constant.SAVE_PATH + System.getProperty("file.separator") + Constant.FILE_NAME;
+                String ouiPath = classLoadRoot
+                        + System.getProperty("file.separator")
+                        + Constant.SAVE_PATH
+                        + System.getProperty("file.separator")
+                        + Constant.FILE_NAME;
                 ouiFile = new File(ouiPath);
             } else {
                 // 本地 Win + IDEA 开发环境

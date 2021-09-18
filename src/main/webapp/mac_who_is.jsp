@@ -63,7 +63,7 @@
                         <li>空&emsp;格：“ ”</li>
                     </ul>
                     <li>也可以只输入前三个字节（输入长度大于等于 3 个字节，至完整长度的 MAC 地址，均能自动识别）</li>
-                    <li>要进行批量查询，可以用<span style="background-color: silver;font-weight:900;color:firebrick;">逗号 “,” 分隔</span>)多个 MAC 地址</li>
+                    <li>要进行批量查询，可以用<span style="background-color: silver;font-weight:900;color:firebrick;"> 逗号 “,” 分隔 </span>多个 MAC 地址</li>
                     <li><br/></li>
                     <li>请在文本框中输入 MAC 地址：</li>
 
