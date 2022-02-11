@@ -6,7 +6,7 @@
 
     <groupId>monster.helloworld</groupId>
     <artifactId>tools_and_toys</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.2.00</version>
 
     <!-- 设置打包方式 -->
     <packaging>war</packaging>
@@ -85,4 +85,5 @@
 <!--            </testResource>-->
 <!--        </testResources>-->
 <!--    </build>-->
+
 </project>

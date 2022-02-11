@@ -11,12 +11,9 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W7NHWX0HRN"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
+
         gtag('config', 'G-W7NHWX0HRN');
     </script>
 </head>
@@ -25,13 +22,14 @@
 <div id="all" style="padding: 0px;">
     <!-- 页面顶栏 -->
     <div id="topbar">
-        <a href="/" title="HelloWorld.Monster"><i class='far fa-edit fa-fw'></i>HelloWorld</a>
-        <a href="/posts/" title="全部文章"> 文章 </a>
-        <a href="/tags/" title="文章标签"> 标签 </a>
-        <a href="/categories/" title="文章分类"> 分类 </a>
-        <a href="/labs/" title="学习与实践"><i class='fas fa-flask'></i> Labs </a>
-        <a href="/tools/" title="工具与玩具"><i class='fas fa-dice-d20'></i> Tools </a>
-        <a href="/about/" title="本站日记"> About </a>
+        <a href="http://www.HelloWorld.Monster/" title="HelloWorld.Monster"><i class='far fa-edit fa-fw'></i>HelloWorld</a>
+        <%--        <a href="http://www.HelloWorld.Monster/posts/" title="全部文章"> 文章 </a>--%>
+        <%--        <a href="http://www.HelloWorld.Monster/tags/" title="文章标签"> 标签 </a>--%>
+        <%--        <a href="http://www.HelloWorld.Monster/categories/" title="文章分类"> 分类 </a>--%>
+        <a href="http://notes.HelloWorld.Monster/" title="笔记"> 笔记 </a>
+        <a href="http://www.HelloWorld.Monster/labs/" title="学习与实践"><i class='fas fa-flask'></i> Labs </a>
+        <a href="http://www.HelloWorld.Monster/tools/" title="工具与玩具"><i class='fas fa-dice-d20'></i> Tools </a>
+        <%--        <a href="http://www.HelloWorld.Monster/about/" title="本站日记"> About </a>--%>
     </div>
 
     <!-- 页面主体 -->
@@ -97,7 +95,7 @@
         let filename = $("#filename").val();
 
         $.ajax({
-            url: "/tools_and_toys/file_name",
+            url: "/tools/file_name",
             async: true,
             data: {
                 "filename": filename
